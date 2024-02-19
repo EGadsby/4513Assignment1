@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "express": "^4.18.2",
+    "supabase": "^1.142.2"
+  },
+  "name": "4513assignment1",
+  "description": "**Please view `COMP4513 Assignment 1.pdf` for instructions**",
+  "version": "1.0.0",
+  "main": "f1-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

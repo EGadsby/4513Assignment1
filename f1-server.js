@@ -7,18 +7,33 @@ const supaAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 
 const supabase = supa.createClient(supaUrl, supaAnonKey);
 
-app.get('/f1/status', async (req, res) => {
+app.get('/api/circuits', async (req, res) => {
     const { data, error } = await supabase
-        .from('status')
+        .from('circuits')
         .select();
     res.send(data);
 });
 
-app.get('/f1/seasons', async (req, res) => {
+
+
+app.get('/api/seasons', async (req, res) => {
     const { data, error } = await supabase
         .from('seasons')
         .select();
     res.send(data);
+});
+
+app.get('/api/circuits/:ref', async (req, res) => {
+    const { data, error } = await supabase
+        .from('circuits')
+        .select()
+        .eq('circuitRef', req.params.ref)
+    if (data && data.length > 0) {
+        res.send(data);
+    } else {
+        res.status(404).json({ message: "No data found" });
+    }
+
 });
 
 app.get('/f1/races', async (req, res) => {
