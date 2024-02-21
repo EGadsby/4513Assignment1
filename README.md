@@ -50,16 +50,13 @@ All the test links are below
 [/api/races/season/2021](https://four513assignment1evangadsby.onrender.com/api/races/season/2021)
 
 
-[/api/races/season/2020/2022](https://four513assignment1evangadsby.onrender.com/api/races/season/2020/2022)
+[/api/races/season/2022/4](https://four513assignment1evangadsby.onrender.com/api/races/season/2022/4)
 
 
-[/api/races/season/2022/2020](https://four513assignment1evangadsby.onrender.com/api/races/season/2022/2020)
+[/api/races/circuits/monza](https://four513assignment1evangadsby.onrender.com/api/races/circuits/monza)
 
 
-[/api/races/circuits/7](https://four513assignment1evangadsby.onrender.com/api/races/circuits/7)
-
-
-[/api/races/circuits/7/season/2015/2022](https://four513assignment1evangadsby.onrender.com/api/races/circuits/7/season/2015/2022)
+[/api/races/circuits/monza/season/2015/202](https://four513assignment1evangadsby.onrender.com/api/races/circuits/monza/season/2015/202)
 
 
 [/api/results/1106](https://four513assignment1evangadsby.onrender.com/api/results/1106)
@@ -71,16 +68,16 @@ All the test links are below
 [/api/results/driver/connolly](https://four513assignment1evangadsby.onrender.com/api/results/driver/connolly)
 
 
-[/api/results/drivers/sainz/seasons/2021/2022](https://four513assignment1evangadsby.onrender.com/api/results/drivers/sainz/seasons/2021/2022)
+[/api/results/driver/sainz/seasons/2021/2022](https://four513assignment1evangadsby.onrender.com/api/results/driver/sainz/seasons/2021/2022)
 
 
 [/api/qualifying/1106](https://four513assignment1evangadsby.onrender.com/api/qualifying/1106)
 
 
-[/api/standings/drivers/1120](https://four513assignment1evangadsby.onrender.com/api/standings/drivers/1120)
+[/api/standings/1120/drivers](https://four513assignment1evangadsby.onrender.com/api/standings/1120/drivers)
 
 
-[/api/standings/constructors/1120](https://four513assignment1evangadsby.onrender.com/api/standings/constructors/1120)
+[/api/standings/1120/constructors](https://four513assignment1evangadsby.onrender.com/api/standings/1120/constructors)
 
 
-[/api/standings/constructors/asds](https://four513assignment1evangadsby.onrender.com/api/standings/constructors/asds)
+[/api/standings/asds/constructors](https://four513assignment1evangadsby.onrender.com/api/standings/asds/constructors)

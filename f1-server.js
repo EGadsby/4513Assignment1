@@ -222,7 +222,7 @@ app.get('/api/results/driver/:ref', async (req, res) => {
     }
 });
 
-app.get('/api/results/drivers/:ref/seasons/:start/:end', async (req, res) => {
+app.get('/api/results/driver/:ref/seasons/:start/:end', async (req, res) => {
     const { data, error } = await supabase
         .from('results')
         .select('drivers!inner(forename,surname), races!inner(name,year), grid')
@@ -254,7 +254,7 @@ app.get('/api/qualifying/:raceId', async (req, res) => {
     }
 });
 
-app.get('/api/standings/drivers/:raceId', async (req, res) => {
+app.get('/api/standings/:raceId/drivers', async (req, res) => {
     const { data, error } = await supabase
         .from('driver_standings')
         .select('drivers!inner(driverRef,code,forename,surname), races!inner(name), position')
@@ -267,7 +267,7 @@ app.get('/api/standings/drivers/:raceId', async (req, res) => {
     }
 });
 
-app.get('/api/standings/constructors/:raceId', async (req, res) => {
+app.get('/api/standings/:raceId/constructors', async (req, res) => {
     const { data, error } = await supabase
         .from('constructor_standings')
         .select('constructors!inner(name,constructorRef,nationality), races!inner(name), position')
