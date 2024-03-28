@@ -1,7 +1,8 @@
 const express = require('express');
 const supa = require('@supabase/supabase-js');
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 const supaUrl = 'https://kaagafytrleazdhwecfs.supabase.co';
 const supaAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthYWdhZnl0cmxlYXpkaHdlY2ZzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDc0OTk3MzMsImV4cCI6MjAyMzA3NTczM30.1Dc2y8oiIcT7LEhgVfs2GhceiHMcfrGENGLXVEmup64';
 
