@@ -144,7 +144,7 @@ app.get('/api/races/:raceid', async (req, res) => {
 app.get('/api/races/season/:year', async (req, res) => {
     const { data, error } = await supabase
         .from('races')
-        .select('name')
+        .select('raceId,name')
         .eq('year', req.params.year)
     if (data && data.length > 0) {
         res.send(data);
