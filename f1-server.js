@@ -130,15 +130,15 @@ app.get('/api/drivers/race/:raceid', async (req, res) => {
 });
 
 app.get('/api/races/:raceid', async (req, res) => {
-    const { data, error } = await supabase
-        .from('races')
-        .select('circuits(name, location, country)')
-        .eq('raceId', req.params.raceid)
-    if (data && data.length > 0) {
-        res.send(data);
-    } else {
-        res.status(404).json({ message: "No data found" });
-    }
+  const { data, error } = await supabase
+    .from('races')
+    .select('*, circuits(circuitId, name, location, country)')
+    .eq('raceId', req.params.raceid)
+  if (data && data.length > 0) {
+    res.send(data);
+  } else {
+    res.status(404).json({ message: "No data found" });
+  }
 });
 
 app.get('/api/races/season/:year', async (req, res) => {
