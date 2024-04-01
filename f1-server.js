@@ -130,15 +130,15 @@ app.get('/api/drivers/race/:raceid', async (req, res) => {
 });
 
 app.get('/api/races/:raceid', async (req, res) => {
-  const { data, error } = await supabase
-    .from('races')
-    .select('*, circuits(circuitId, name, location, country)')
-    .eq('raceId', req.params.raceid)
-  if (data && data.length > 0) {
-    res.send(data);
-  } else {
-    res.status(404).json({ message: "No data found" });
-  }
+    const { data, error } = await supabase
+        .from('races')
+        .select('*, circuits(circuitId, name, location, country)')
+        .eq('raceId', req.params.raceid)
+    if (data && data.length > 0) {
+        res.send(data);
+    } else {
+        res.status(404).json({ message: "No data found" });
+    }
 });
 
 app.get('/api/races/season/:year', async (req, res) => {
@@ -204,6 +204,18 @@ app.get('/api/results/:raceId', async (req, res) => {
         .select('drivers!inner(driverRef,code,forename,surname), races!inner(name,round,year,date), constructors(name,constructorRef,nationality), grid')
         .eq('raceId', req.params.raceId)
         .order('grid', { ascending: true });
+    if (data && data.length > 0) {
+        res.send(data);
+    } else {
+        res.status(404).json({ message: "No data found" });
+    }
+});
+
+app.get('/api/results/laps/:raceId', async (req, res) => {
+    const { data, error } = await supabase
+        .from('results')
+        .select('position, laps, points, drivers!inner(forename,surname), constructors(name,constructorRef,nationality), grid')
+        .eq('raceId', req.params.raceId)
     if (data && data.length > 0) {
         res.send(data);
     } else {
