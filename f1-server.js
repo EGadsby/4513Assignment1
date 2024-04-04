@@ -28,7 +28,20 @@ app.get('/api/circuits/:ref', async (req, res) => {
     const { data, error } = await supabase
         .from('circuits')
         .select()
-        .eq('circuitRef', req.params.ref)
+        .eq('circuitId', req.params.ref)
+    if (data && data.length > 0) {
+        res.send(data);
+    } else {
+        res.status(404).json({ message: "No data found" });
+    }
+
+});
+
+app.get('/api/circuits/info/:circuitid', async (req, res) => {
+    const { data, error } = await supabase
+        .from('circuits')
+        .select('name, location, country, url')
+        .eq('circuitid', req.params.circuitid)
     if (data && data.length > 0) {
         res.send(data);
     } else {
@@ -144,7 +157,7 @@ app.get('/api/races/:raceid', async (req, res) => {
 app.get('/api/races/season/:year', async (req, res) => {
     const { data, error } = await supabase
         .from('races')
-        .select('raceId,name')
+        .select('raceId,name,circuitId')
         .eq('year', req.params.year)
     if (data && data.length > 0) {
         res.send(data);
