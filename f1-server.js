@@ -295,7 +295,7 @@ app.get('/api/qualifying/:raceId', async (req, res) => {
 app.get('/api/standings/drivers/:raceId', async (req, res) => {
     const { data, error } = await supabase
         .from('driver_standings')
-        .select('wins, points, drivers!inner(driverRef,code,forename,surname,dob,url), races!inner(name), position')
+        .select('wins, points, drivers!inner(driverId,driverRef,code,forename,surname,dob,url), races!inner(name), position')
         .eq('raceId', req.params.raceId)
         .order('position', { ascending: true });
     if (data && data.length > 0) {
@@ -308,7 +308,7 @@ app.get('/api/standings/drivers/:raceId', async (req, res) => {
 app.get('/api/standings/constructors/:raceId', async (req, res) => {
     const { data, error } = await supabase
         .from('constructor_standings')
-        .select('points, wins, constructors!inner(name,constructorRef,nationality,url), races!inner(name), position')
+        .select('points, wins, constructors!inner(constructorId,name,constructorRef,nationality,url), races!inner(name), position')
         .eq('raceId', req.params.raceId)
         .order('position', { ascending: true });
     if (data && data.length > 0) {
