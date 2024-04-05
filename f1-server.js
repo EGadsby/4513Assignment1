@@ -239,7 +239,7 @@ app.get('/api/drivers/info/:Id', async (req, res) => {
 app.get('/api/results/laps/:raceId', async (req, res) => {
     const { data, error } = await supabase
         .from('results')
-        .select('position, laps, points, drivers!inner(forename,surname), constructors(constructorId,name,constructorRef,nationality), grid')
+        .select('position, laps, points, drivers!inner(forename,surname,driverId), constructors(constructorId,name,constructorRef,nationality), grid')
         .eq('raceId', req.params.raceId)
     if (data && data.length > 0) {
         res.send(data);
