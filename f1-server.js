@@ -81,7 +81,7 @@ app.get('/api/constructors/:ref', async (req, res) => {
     const { data, error } = await supabase
         .from('constructors')
         .select('*')
-        .eq('constructorRef', req.params.ref)
+        .eq('constructorId', req.params.ref)
     console.log(data)
     if (data && data.length > 0) {
         res.send(data);
