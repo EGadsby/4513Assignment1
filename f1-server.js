@@ -214,9 +214,21 @@ app.get('/api/races/circuits/:ref/season/:start/:end', async (req, res) => {
 app.get('/api/results/:raceId', async (req, res) => {
     const { data, error } = await supabase
         .from('results')
-        .select('drivers!inner(driverRef,code,forename,surname), races!inner(name,round,year,date), constructors(name,constructorRef,nationality), grid')
+        .select('drivers!inner(driverRef,code,forename,surname), races!inner(name,round,year,date), constructors(constructorId,name,constructorRef,nationality), grid')
         .eq('raceId', req.params.raceId)
         .order('grid', { ascending: true });
+    if (data && data.length > 0) {
+        res.send(data);
+    } else {
+        res.status(404).json({ message: "No data found" });
+    }
+});
+
+app.get('/api/drivers/info/:Id', async (req, res) => {
+    const { data, error } = await supabase
+        .from('drivers')
+        .select('driverId, forename, surname, dob, nationality, url')
+        .eq('driverId', req.params.Id)
     if (data && data.length > 0) {
         res.send(data);
     } else {
