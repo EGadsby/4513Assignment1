@@ -282,7 +282,7 @@ app.get('/api/results/driver/:ref/seasons/:start/:end', async (req, res) => {
 app.get('/api/qualifying/:raceId', async (req, res) => {
     const { data, error } = await supabase
         .from('qualifying')
-        .select('* ,drivers!inner(driverRef,code,forename,surname), races!inner(name,round,year,date), constructors(name,constructorRef,nationality)')
+        .select('* ,drivers!inner(driverId,driverRef,code,forename,surname), races!inner(name,round,year,date), constructors(constructorId,name,constructorRef,nationality)')
         .eq('raceId', req.params.raceId)
         .order('position', { ascending: true });
     if (data && data.length > 0) {
